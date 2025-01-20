@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/login-styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo"><img src="/images/washing-machine.png" alt="Washing Machine Logo"></a>
+        </div>
+        <div class="nav-right">
+                <a href="/login">Login</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="/register" method="POST">
+            <label>First Name:</label>
+            <input type="text" name="firstName" required>
+            <label>Last Name:</label>
+            <input type="text" name="lastName" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Password:</label>
+            <input type="password" name="password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

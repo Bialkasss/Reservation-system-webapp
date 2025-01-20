@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Reservations</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo"><img src="/images/washing-machine.png" alt="Washing Machine Logo"></a>
+        </div>
+        <div class="nav-right">
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>My Reservations</h1>
+        <% if (reservations.length===0) { %>
+            <p>You have no reservations yet.</p>
+            <% } else { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Machine Name</th>
+                            <th>Floor</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% reservations.forEach(reservation => { %>
+                            <% const startTime = new Date(reservation.start_time); %>
+                            <% const endTime = new Date(reservation.end_time); %>
+                            <% const currentTime = new Date(); %>
+                        
+                            <% if (startTime < currentTime) { %>  <!-- Check if start_time is in the past -->
+                                <tr style="background-color: lightcoral;">
+                                    <td>
+                                        <%= reservation.machineName %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.machineFloor %>
+                                    </td>
+                                    <td>
+                                        <%= startTime.getMonth() + 1 %>/<%= startTime.getDate() %>
+                                    </td>
+                                    <td>
+                                        <%= startTime.getHours() %>:<%= String(startTime.getMinutes()).padStart(2, '0') %> - <%= endTime.getHours() %>:<%= String(endTime.getMinutes()).padStart(2, '0') %>
+                                    </td>
+                                    <td>
+                                        Completed
+                                    </td>
+                                </tr>
+                            <% } else { %>
+                                <tr>
+                                    <td>
+                                        <%= reservation.machineName %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.machineFloor %>
+                                    </td>
+                                    <td>
+                                        <%= startTime.getMonth() + 1 %>/<%= startTime.getDate() %>
+                                    </td>
+                                    <td>
+                                        <%= startTime.getHours() %>:<%= String(startTime.getMinutes()).padStart(2, '0') %> - <%= endTime.getHours() %>:<%= String(endTime.getMinutes()).padStart(2, '0') %>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% }); %>
+                        
+                    </tbody>
+                </table>
+                <% } %>
+    </div>
+</body>
+
+</html>

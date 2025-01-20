@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Machine Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo"><img src="/images/washing-machine.png" alt="Washing Machine Logo"></a>
+        </div>
+        <div class="nav-right">
+            <a href="/reservations">My Reservations</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="top-section">
+            <h1>Machine Dashboard</h1>
+        </div>
+
+        <!-- Machines List -->
+        <div class="product-list">
+            <% machines.forEach(machine => { %>
+                <div class="product">
+                    <h3><%= machine.name %></h3>
+                    <p>Floor: <%= machine.floor %></p>
+                    <p>Number: <%= machine.number %></p>
+                    <form action="/reserve" method="POST">
+                        <input type="hidden" name="machineID" value="<%= machine.ID %>">
+                        <button type="submit">Reserve</button>
+                    </form>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html> -->

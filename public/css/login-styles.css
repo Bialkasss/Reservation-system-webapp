@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #00171f;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+a {
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003459;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left .logo img {
+    height: 40px;
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a {
+    margin-right:10px;
+    color:white;
+    text-decoration: none;
+}
+
+/* Container for the login form */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+/* Title */
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #003459;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom:20px;
+}
+
+/* Labels */
+label {
+    margin-bottom: 8px;
+    color: #003459;
+}
+
+/* Input fields */
+input[type="text"], input[type="password"], input[type="email"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit button */
+button {
+    background-color: #007ea7;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #00a8e8;
+}
+
+.forgot-password {
+    display: inline-block;  /* Force alignment */
+    text-align: left;       /* Align text to left */
+    color: #007ea7;
+    padding: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;  /* Match the width of the button */
+}
+
+.forgot-password:visited {
+    color: #007ea7;  /* Keep the original color */
+    text-decoration: none;
+}
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Optional: Styling for responsive */
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 20px;
+    }
+}

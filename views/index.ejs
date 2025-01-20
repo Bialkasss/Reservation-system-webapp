@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Machine Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        // Function to toggle reservation form visibility
+        function toggleReservationForm(machineId) {
+            const form = document.getElementById(`reservation-form-${machineId}`);
+            form.style.display = form.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo"><img src="/images/washing-machine.png" alt="Washing Machine Logo"></a>
+        </div>
+        <div class="nav-right">
+            <% if (userAuthenticated) { %>
+                <a href="/reservations">My Reservations</a>
+                <a href="/logout">Logout</a>
+            <% } else { %>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            <% } %>
+            
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="top-section">
+            <h1>Machines Available</h1>
+        </div>
+
+        <!-- Machines List -->
+        <div class="product-list">
+            <% machines.forEach(machine => { %>
+                <div class="product">
+                    <img src="<%= machine.photo %>" alt="<%= machine.name %>" class="machine-photo">
+                    <h3><%= machine.name %></h3>
+                    <p>Floor: <%= machine.floor %></p>
+                    <p>Number: <%= machine.number %></p>
+                    <button onclick="toggleReservationForm('<%= machine.ID %>')">&#x25BC;</button>
+
+                    <!-- Reservation Form -->
+                    <div id="reservation-form-<%= machine.ID %>" class="reservation-form" style="display: none; margin-top: 10px;">
+                        <form action="/reserve" method="POST">
+                            <input type="hidden" name="machineID" value="<%= machine.ID %>">
+                            <label for="start-time-<%= machine.ID %>">Start Time:</label>
+                            <input type="datetime-local" id="start-time-<%= machine.ID %>" name="startTime" required>
+                            <button type="submit">Confirm Reservation</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
